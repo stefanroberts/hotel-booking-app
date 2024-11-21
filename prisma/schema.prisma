@@ -1,0 +1,55 @@
+generator client {
+  provider = "prisma"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model Property {
+  id          String    @id @default(uuid())
+  name        String
+  domain      String?   @unique
+  theme       String    @default("default")
+  userId      String
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  user        User      @relation(fields: [userId], references: [id])
+  rooms       Room[]
+  bookings    Booking[]
+}
+
+model User {
+  id         String     @id @default(uuid())
+  email      String     @unique
+  password   String
+  name       String
+  properties Property[]
+  createdAt  DateTime   @default(now())
+  updatedAt  DateTime   @updatedAt
+}
+
+model Room {
+  id          String    @id @default(uuid())
+  name        String
+  description String
+  price       Float
+  propertyId  String
+  property    Property  @relation(fields: [propertyId], references: [id])
+  bookings    Booking[]
+}
+
+model Booking {
+  id         String   @id @default(uuid())
+  startDate  DateTime
+  endDate    DateTime
+  guestName  String
+  guestEmail String
+  roomId     String
+  propertyId String
+  room       Room     @relation(fields: [roomId], references: [id])
+  property   Property @relation(fields: [propertyId], references: [id])
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+}

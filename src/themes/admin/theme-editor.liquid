@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ page.title }}</title>
+  <link rel="stylesheet" href="/assets/admin/styles.css">
+  <link rel="stylesheet" href="/assets/admin/editor.css">
+</head>
+<body>
+  <div class="editor-layout">
+    <nav class="editor-sidebar">
+      <div class="file-tree">
+        <h3>Theme Files</h3>
+        <ul id="fileTree">
+          {% for file in theme.files %}
+            <li data-path="{{ file.path }}">
+              <span class="file-name">{{ file.name }}</span>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </nav>
+
+    <main class="editor-content">
+      <div id="monaco-editor"></div>
+    </main>
+
+    <div class="editor-preview">
+      <h3>Preview</h3>
+      <iframe id="preview" src="/preview/{{ theme.id }}"></iframe>
+    </div>
+  </div>
+
+  <script src="/assets/vendor/monaco-editor/min/vs/loader.js"></script>
+  <script src="/assets/admin/editor.js"></script>
+</body>
+</html>

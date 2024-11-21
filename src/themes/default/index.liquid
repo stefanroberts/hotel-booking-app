@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ page.title }}</title>
+  <link rel="stylesheet" href="/assets/default/styles.css">
+</head>
+<body>
+  <header>
+    <h1>{{ property.name }}</h1>
+    <p>{{ property.description }}</p>
+  </header>
+
+  <main>
+    {% if rooms %}
+      <section class="rooms">
+        {% for room in rooms %}
+          <article class="room">
+            <h2>{{ room.name }}</h2>
+            <p>{{ room.description }}</p>
+            <p class="price">{{ room.price | money }}</p>
+          </article>
+        {% endfor %}
+      </section>
+    {% else %}
+      <p>No rooms available</p>
+    {% endif %}
+  </main>
+
+  <footer>
+    <p>&copy; {{ 'now' | date: '%Y' }} {{ property.name }}</p>
+  </footer>
+
+  <script src="/assets/default/main.js"></script>
+</body>
+</html>

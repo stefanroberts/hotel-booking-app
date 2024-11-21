@@ -1,0 +1,67 @@
+:root {
+  --primary-color: #2563eb;
+  --secondary-color: #1e40af;
+  --background-color: #f3f4f6;
+  --text-color: #1f2937;
+  --sidebar-width: 250px;
+}
+
+/* Admin Layout */
+.admin-layout {
+  display: grid;
+  grid-template-columns: var(--sidebar-width) 1fr;
+  min-height: 100vh;
+}
+
+.sidebar {
+  background-color: var(--text-color);
+  color: white;
+  padding: 1.5rem;
+}
+
+.content {
+  padding: 2rem;
+  background-color: var(--background-color);
+}
+
+/* Dashboard Grid */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Theme Editor */
+.editor-layout {
+  display: grid;
+  grid-template-columns: 200px 1fr 300px;
+  height: 100vh;
+}
+
+.editor-sidebar {
+  background: var(--text-color);
+  color: white;
+  padding: 1rem;
+}
+
+.editor-content {
+  height: 100vh;
+}
+
+.editor-preview {
+  background: white;
+  border-left: 1px solid #e5e7eb;
+  padding: 1rem;
+}
+
+#monaco-editor {
+  height: 100%;
+}

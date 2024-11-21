@@ -1,0 +1,23 @@
+{
+  "name": "hotel-booking-platform",
+  "description": "Hotel and B&B booking platform with customizable themes",
+  "keywords": ["node", "express", "booking", "hotel"],
+  "website": "",
+  "repository": "",
+  "env": {
+    "NODE_ENV": {
+      "description": "Node environment",
+      "value": "production"
+    },
+    "SESSION_SECRET": {
+      "description": "A secret key for session management",
+      "generator": "secret"
+    }
+  },
+  "formation": {
+    "web": {
+      "quantity": 1,
+      "size": "basic-xxs"
+    }
+  }
+}

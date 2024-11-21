@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ page.title }}</title>
+  <link rel="stylesheet" href="/assets/admin/styles.css">
+</head>
+<body>
+  <div class="admin-layout">
+    <nav class="sidebar">
+      <div class="logo">
+        <h1>Admin Dashboard</h1>
+      </div>
+      <ul class="nav-links">
+        <li><a href="/admin/dashboard">Dashboard</a></li>
+        <li><a href="/admin/properties">Properties</a></li>
+        <li><a href="/admin/themes">Themes</a></li>
+        <li><a href="/admin/domains">Domains</a></li>
+      </ul>
+    </nav>
+
+    <main class="content">
+      <header class="content-header">
+        <h2>Welcome, {{ user.name }}</h2>
+      </header>
+
+      <div class="dashboard-grid">
+        <div class="card">
+          <h3>Properties</h3>
+          <p class="number">{{ stats.properties }}</p>
+        </div>
+        <div class="card">
+          <h3>Active Bookings</h3>
+          <p class="number">{{ stats.activeBookings }}</p>
+        </div>
+        <div class="card">
+          <h3>Total Revenue</h3>
+          <p class="number">{{ stats.revenue | money }}</p>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="/assets/admin/dashboard.js"></script>
+</body>
+</html>

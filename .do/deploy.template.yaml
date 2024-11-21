@@ -1,0 +1,39 @@
+{
+  "spec": {
+    "name": "hotel-booking-platform",
+    "services": [
+      {
+        "name": "web",
+        "git": {
+          "branch": "main",
+          "repo_clone_url": "${_self.repository}"
+        },
+        "build_command": "npm install",
+        "run_command": "npm start",
+        "envs": [
+          {
+            "key": "NODE_ENV",
+            "value": "production"
+          },
+          {
+            "key": "DATABASE_URL",
+            "value": "${db.DATABASE_URL}"
+          },
+          {
+            "key": "SESSION_SECRET",
+            "scope": "RUN_TIME",
+            "type": "SECRET",
+            "value": "${_self.SESSION_SECRET}"
+          }
+        ]
+      }
+    ],
+    "databases": [
+      {
+        "name": "db",
+        "engine": "PG",
+        "production": true
+      }
+    ]
+  }
+}
